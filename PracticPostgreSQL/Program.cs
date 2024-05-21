@@ -19,10 +19,17 @@ class Program
                 string rolePerson = Console.ReadLine();
                 Console.WriteLine("Введите работу персонажа");
                 string jobPerson = Console.ReadLine();
-                User user1 = new User { Name = namePerson, Role = rolePerson, Job = jobPerson };
-                db.Users.AddRange(user1);
-                db.SaveChanges();
-                Console.WriteLine("Успешно!");
+                try
+                {
+                    User user1 = new User { Name = namePerson, Role = rolePerson, Job = jobPerson };
+                    db.Users.AddRange(user1);
+                    db.SaveChanges();
+                    Console.WriteLine("Успешно!");
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
 
 
             }
@@ -41,10 +48,18 @@ class Program
                 string nameCar = Console.ReadLine();
                 Console.WriteLine("Введите литраж двигателя машины");
                 double engineCar = Convert.ToDouble(Console.ReadLine());
-                Console.WriteLine("Успешно!");
-                Cars newCar = new Cars { Name =  nameCar, Engine = engineCar };
-                db.Car.AddRange(newCar);
-                db.SaveChanges();
+                try
+                {
+                    Cars newCar = new Cars { Name = nameCar, Engine = engineCar };
+                    db.Car.AddRange(newCar);
+                    db.SaveChanges();
+
+                    Console.WriteLine("Успешно!");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
             }
             else if ( message == "Машины")
             {
