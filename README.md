@@ -1,4 +1,4 @@
-# CSharp-Postgres-Training
+# CSharp-Postgres-Example
 
 **RU LANG:**
 
